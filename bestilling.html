@@ -1,0 +1,243 @@
+﻿<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book en service</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: url('images/background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+        }
+
+        header {
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .top-menu {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+            .top-menu a {
+                color: #fff;
+                text-decoration: none;
+                font-weight: 500;
+                transition: color 0.3s;
+            }
+
+                .top-menu a:hover {
+                    color: #00bfff;
+                }
+
+        .lang-switch {
+            background: #333;
+            color: #fff;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+            .lang-switch:hover {
+                background-color: #0070f3;
+            }
+
+        main {
+            backdrop-filter: blur(10px);
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 2rem;
+            border-radius: 16px;
+            margin: 3rem auto;
+            max-width: 700px;
+            box-shadow: 0 0 30px rgba(0,0,0,0.5);
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+        }
+
+        form label {
+            display: block;
+            margin-top: 1rem;
+            font-weight: bold;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 0.8rem;
+            margin-top: 0.5rem;
+            background-color: #222;
+            border: none;
+            border-radius: 8px;
+            color: #fff;
+        }
+
+        button[type="submit"] {
+            background-color: #00bfff;
+            color: #000;
+            padding: 1rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 2rem;
+            transition: background-color 0.3s;
+        }
+
+            button[type="submit"]:hover {
+                background-color: #009acd;
+            }
+
+        footer {
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 1rem;
+        }
+
+            footer p, .whatsapp {
+                margin: 0.5rem 0;
+                color: #ccc;
+            }
+
+                .whatsapp a {
+                    color: #25D366;
+                    text-decoration: none;
+                    font-weight: bold;
+                }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="top-menu">
+            <a href="index.html">🏠 Hjem</a>
+            <a href="priser.html" data-i18n="prices">💰 Priser</a>
+            <a href="feedback.html" data-i18n="feedback">🗣️ Feedback</a>
+        </div>
+        <button class="lang-switch" onclick="toggleLang()">🇩🇰 / 🇬🇧</button>
+    </header>
+
+    <main>
+        <h1 data-i18n="orderService">Bestil en service</h1>
+        <form action="https://formspree.io/f/your-form-id" method="POST">
+            <label for="service" data-i18n="selectService">Vælg service:</label>
+            <select name="service" id="service" required>
+                <option value="Rensning af laptop" data-i18n="laptopCleaning">Rensning af laptop</option>
+                <option value="Opdatering af software" data-i18n="softwareUpdate">Opdatering af software</option>
+                <option value="Gendannelse af data" data-i18n="dataRecovery">Gendannelse af data</option>
+                <option value="Installation af Windows" data-i18n="windowsInstall">Installation af Windows</option>
+                <option value="Fejlfinding og optimering" data-i18n="troubleshooting">Fejlfinding og optimering</option>
+            </select>
+
+            <label for="dato" data-i18n="selectDate">Vælg dato:</label>
+            <input type="date" name="dato" id="dato" required>
+
+            <label for="tid" data-i18n="selectTime">Vælg tidspunkt:</label>
+            <select name="tid" id="tid" required>
+                <option value="08:00">08:00</option>
+                <option value="10:00">10:00</option>
+                <option value="12:00">12:00</option>
+                <option value="14:00">14:00</option>
+                <option value="16:00">16:00</option>
+                <option value="18:00">18:00</option>
+                <option value="20:00">20:00</option>
+            </select>
+
+            <label for="adresse" data-i18n="address">Adresse:</label>
+            <input type="text" name="adresse" id="adresse" required>
+
+            <label for="telefon" data-i18n="phoneNumber">Telefonnummer:</label>
+            <input type="tel" name="telefon" id="telefon" required>
+
+            <label for="beskrivelse" data-i18n="description">Beskriv kort dit problem:</label>
+            <textarea name="beskrivelse" id="beskrivelse" rows="4" required></textarea>
+
+            <button type="submit" data-i18n="bookNow">Book nu</button>
+        </form>
+    </main>
+
+    <footer>
+        <div>
+            📧 Email: <a href="mailto:maksimys09b@gmail.com">maksimys09b@gmail.com</a>
+        </div>
+        <div class="whatsapp">
+            <span>📲 WhatsApp:</span>
+            <a href="https://wa.me/1234567890" target="_blank">+45 123 456 78</a>
+        </div>
+    </footer>
+
+    <script>
+        const translations = {
+            en: {
+                orderService: "Book a Service",
+                selectService: "Select Service",
+                laptopCleaning: "Laptop Cleaning",
+                softwareUpdate: "Software Update",
+                dataRecovery: "Data Recovery",
+                windowsInstall: "Windows Installation",
+                troubleshooting: "Troubleshooting and Optimization",
+                selectDate: "Select Date",
+                selectTime: "Select Time",
+                address: "Address",
+                phoneNumber: "Phone Number",
+                description: "Describe your issue briefly",
+                bookNow: "Book Now"
+            },
+            da: {
+                orderService: "Bestil en service",
+                selectService: "Vælg service",
+                laptopCleaning: "Rensning af laptop",
+                softwareUpdate: "Opdatering af software",
+                dataRecovery: "Gendannelse af data",
+                windowsInstall: "Installation af Windows",
+                troubleshooting: "Fejlfinding og optimering",
+                selectDate: "Vælg dato",
+                selectTime: "Vælg tidspunkt",
+                address: "Adresse",
+                phoneNumber: "Telefonnummer",
+                description: "Beskriv kort dit problem",
+                bookNow: "Book nu"
+            }
+        };
+
+        let currentLang = 'da';
+
+        function toggleLang() {
+            currentLang = currentLang === 'da' ? 'en' : 'da';
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                el.textContent = translations[currentLang][key];
+            });
+        }
+
+        const dateInput = document.getElementById('dato');
+        const today = new Date().toISOString().split('T')[0];
+        dateInput.setAttribute('min', today);
+    </script>
+</body>
+</html>
